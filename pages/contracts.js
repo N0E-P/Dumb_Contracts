@@ -1,15 +1,15 @@
 import Head from "next/head";
 import Link from "next/link";
 
-export default function Home() {
+export default function Contracts() {
   return (
     <div>
       <Head>
-        <title>Dumb Contracts</title>
-        <meta name="description" content="Home" />
+        <title>Your Contracts</title>
+        <meta name="description" content="Your contracts" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <h1>Dumb Contracts</h1>
+      <h1>Your Contracts</h1>
       <div className="p-4 flex">
         <Link href="/">
           <button>Home</button>
@@ -26,8 +26,9 @@ export default function Home() {
         </div>
       </div>
       <div className="p-4">
-        Créer des contracts entre deux personnes de manière decentralisés et
-        assuré avec un collatéral.
+        <h3 className="py-4">Contracts en cours</h3>
+        <h3 className="py-4">Contracts que l’on vous propose</h3>
+        <h3 className="py-4">Contracts que vous avez proposé</h3>
       </div>
     </div>
   );
