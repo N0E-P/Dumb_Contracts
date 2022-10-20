@@ -1,26 +1,20 @@
-first remix account : 0x5B38Da6a701c568545dCfcB03FcB875f56beddC4
-second remix account : 0xAb8483F64d9C6d1EcF9b849Ae677dD3315835cb2
-0.01 ETH (collateral) : 10000000000000000
+deploy smart contract on a testnet
 
-nextjs NFT marketplace
-https://youtu.be/gyMwXuJrbJQ?t=89551
-1 jour 03h 44min
+entrer l'addresse et l'abi du smart contract sur create.js
 
----
+test create a contract on website
 
-intégration frontend
-va avoir besoin de l'addresse et de l'abi du smart contract
-
-create a contract
-1 jour 3h 41min https://youtu.be/gyMwXuJrbJQ?t=99660
-
-my contracts
+my contracts page
 ajouter des "emit" avec moralis etc...?
 1 jour 1h 20min 30s https://youtu.be/gyMwXuJrbJQ?t=91230
 OU lire direct depuis la blockchain ? (ce qui serait beaucoup plus simple a mettre en place)
 
-website style
-logo
+max de tests
+besoin de mettre les values d'ETH en string pour éviter les big numbers ? si oui, changer sur la dapp et le smart contract
+
+website style with tailwind
+logo  
+mobile adaptation
 
 ---
 
@@ -28,7 +22,7 @@ prix auquels je pourrais prétendre :
 chainlink quality winners (doit utiliser chainlink)
 filecoin / ipfs (doit faire un truc en rapport)
 polygon (il suffit de deployer dessus)
-quicknode([https://www.quicknode.com/](https://www.quicknode.com/))
+quicknode(https://www.quicknode.com/)
 
 Visu du contract ?
 nft
