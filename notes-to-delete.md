@@ -4,16 +4,23 @@ second remix account : 0xAb8483F64d9C6d1EcF9b849Ae677dD3315835cb2
 
 nextjs NFT marketplace
 https://youtu.be/gyMwXuJrbJQ?t=89551
+1 jour 03h 44min
 
 ---
 
 intégration frontend
+va avoir besoin de l'addresse et de l'abi du smart contract
 
 create a contract
+1 jour 3h 41min https://youtu.be/gyMwXuJrbJQ?t=99660
 
 my contracts
+ajouter des "emit" avec moralis etc...?
+1 jour 1h 20min 30s https://youtu.be/gyMwXuJrbJQ?t=91230
+OU lire direct depuis la blockchain ? (ce qui serait beaucoup plus simple a mettre en place)
 
 website style
+logo
 
 ---
 

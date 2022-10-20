@@ -1,5 +1,6 @@
 import Head from "next/head"
 import Link from "next/link"
+import { ConnectButton, Form } from "web3uikit"
 
 export default function Create() {
 	return (
@@ -24,21 +25,58 @@ export default function Create() {
 						<button>Your contracts</button>
 					</Link>
 				</div>
+				<ConnectButton moralisAuth={false} />
 			</div>
 			<div className="p-4">
 				<h3>Formulaire à remplir</h3>
-				<div>Nom du contrat</div>
-				<div>Texte expliquant le contract que l’on veut créer</div>
-				<div>Addresse ou ENS name de la 2nd personne</div>
-				<div>Collateral mis par chacunes des 2 personnes</div>
-				<div>Une fois le contract validé :</div>
-				<div className="px-3">vous récupérez chacuns vos collatéraux</div>
-				<div className="px-3">? montant que vous donner a personne 2</div>
-				<div className="px-3">? montant que personne 2 vous donnera</div>
-				<div className="px-3">
-					(l’argent donné et le collateral doit être payé sur le smart contract dès sa
-					création)
-				</div>
+				<Form
+					data={[
+						{
+							name: "Contract Name",
+							type: "text",
+							inputWidth: "100%",
+							value: "",
+							key: "name",
+						},
+						{
+							name: "What does it do?",
+							type: "text",
+							inputWidth: "100%",
+							value: "",
+							key: "text",
+						},
+						{
+							name: "Second User ETH address",
+							type: "text",
+							inputWidth: "100%",
+							value: "",
+							key: "user2",
+						},
+						{
+							name: "Collateral > 0.01 ETH",
+							type: "number",
+							inputWidth: "100%",
+							value: "",
+							key: "collateral",
+						},
+						{
+							name: "ETH you will give to the Second User",
+							type: "number",
+							inputWidth: "100%",
+							value: "",
+							key: "amountFromUser1ToUser2",
+						},
+						{
+							name: "ETH the Second User will give you",
+							type: "number",
+							inputWidth: "100%",
+							value: "",
+							key: "amountFromUser2ToUser1",
+						},
+					]}
+					title="hola"
+					id="form"
+				/>
 			</div>
 		</div>
 	)
