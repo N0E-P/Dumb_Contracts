@@ -23,11 +23,11 @@ contract dumb {
 		address payable user1; //creator
 		address payable user2; //2nd user
 		uint256 amountFromUser1ToUser2; //written in wei
-		uint256 amountFromUser2ToUser1; //written in wei
-		string opinionUser1; // It can be : complete / abandon / dispute
-		string opinionUser2; // It can be : complete / abandon / dispute
+		uint256 amountFromUser2ToUser1;
+		string opinionUser1; // It can be : "complete" / "abandon" / "dispute" (you have to put the "" in the setYourOpinion field)
+		string opinionUser2;
 		uint256 moneyForUser1; //written in wei
-		uint256 moneyForUser2; //written in wei
+		uint256 moneyForUser2;
 	}
 
 	mapping(uint256 => Contract) contractList;
@@ -81,12 +81,15 @@ contract dumb {
 		}
 
 		//the contract have to be in the state "suggested"
-		if (keccak256(abi.encode(contractList[_contractNumber].state)) != "suggested") {
+		if (
+			keccak256(abi.encode(contractList[_contractNumber].state)) !=
+			keccak256(abi.encode("suggested"))
+		) {
 			revert dumb__YouHaveAlreadyChooseToAcceptOrRefuseTheContract();
 		}
 
 		//if the contract has been rejected
-		if (_choice = false) {
+		if (_choice == false) {
 			//note the money due
 			contractList[_contractNumber].moneyForUser1 =
 				contractList[_contractNumber].collateral +
@@ -155,22 +158,24 @@ contract dumb {
 	function setYourOpinion(uint256 _contractNumber, string memory _choice) external {
 		//The state of the contract need to be ongoing or disputed
 		if (
-			keccak256(abi.encode(contractList[_contractNumber].state)) != "ongoing" ||
-			keccak256(abi.encode(contractList[_contractNumber].state)) != "disputed"
+			keccak256(abi.encode(contractList[_contractNumber].state)) !=
+			keccak256(abi.encode("ongoing")) &&
+			keccak256(abi.encode(contractList[_contractNumber].state)) !=
+			keccak256(abi.encode("disputed"))
 		) {
 			revert dumb__TheStateOfTheContractNeedToBeOngoingORDisputed();
 		}
 
 		//verify if it is one of the users of the contract calling this function
 		if (
-			(msg.sender != contractList[_contractNumber].user1) ||
+			(msg.sender != contractList[_contractNumber].user1) &&
 			(msg.sender != contractList[_contractNumber].user2)
 		) {
 			revert dumb__YourAreNotAUserOfTheContract();
 		}
 
 		//dispute (Will be improved later)
-		if (keccak256(abi.encode(_choice)) == "dispute") {
+		if (keccak256(abi.encode(_choice)) == keccak256(abi.encode("dispute"))) {
 			//user1
 			if (msg.sender == contractList[_contractNumber].user1) {
 				contractList[_contractNumber].opinionUser1 = "dispute";
@@ -187,8 +192,8 @@ contract dumb {
 
 		//choice has to be "complete" or "abandon"
 		if (
-			keccak256(abi.encode(_choice)) != "complete" ||
-			keccak256(abi.encode(_choice)) != "abandon"
+			keccak256(abi.encode(_choice)) != keccak256(abi.encode("complete")) &&
+			keccak256(abi.encode(_choice)) != keccak256(abi.encode("abandon"))
 		) {
 			revert dumb__ChoiceHasToBeOneOf_complete_abandon_dispute();
 		}
@@ -210,8 +215,10 @@ contract dumb {
 
 		//check if the 2 decide to set it as complete
 		if (
-			keccak256(abi.encode(contractList[_contractNumber].opinionUser1)) == "complete" &&
-			keccak256(abi.encode(contractList[_contractNumber].opinionUser2)) == "complete"
+			keccak256(abi.encode(contractList[_contractNumber].opinionUser1)) ==
+			keccak256(abi.encode("complete")) &&
+			keccak256(abi.encode(contractList[_contractNumber].opinionUser2)) ==
+			keccak256(abi.encode("complete"))
 		) {
 			//note the money due
 			contractList[_contractNumber].moneyForUser1 = amount1;
@@ -223,8 +230,10 @@ contract dumb {
 
 		//check if the 2 decide to abandon
 		if (
-			keccak256(abi.encode(contractList[_contractNumber].opinionUser1)) == "abandon" &&
-			keccak256(abi.encode(contractList[_contractNumber].opinionUser2)) == "abandon"
+			keccak256(abi.encode(contractList[_contractNumber].opinionUser1)) ==
+			keccak256(abi.encode("abandon")) &&
+			keccak256(abi.encode(contractList[_contractNumber].opinionUser2)) ==
+			keccak256(abi.encode("abandon"))
 		) {
 			//note the money due
 			contractList[_contractNumber].moneyForUser1 = amount2;
