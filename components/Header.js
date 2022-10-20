@@ -4,11 +4,15 @@ import { ConnectButton } from "web3uikit"
 export default function Header() {
 	return (
 		<div>
-			<h1>Dumb Contracts</h1>
 			<div className="p-4 flex justify-center">
-				<Link href="/">
-					<button>Home</button>
-				</Link>
+				<div className="mx-4">
+					<Link href="/">
+						<div className="flex">
+							<div className="m-4">*logo*</div>
+							<h1 className="mx-4">Dumb Contracts</h1>
+						</div>
+					</Link>
+				</div>
 				<div className="mx-4">
 					<Link href="/create">
 						<button>Create a contract</button>
