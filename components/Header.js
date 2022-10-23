@@ -3,7 +3,7 @@ import { useAccount, useConnect, useDisconnect } from "wagmi"
 import { InjectedConnector } from "wagmi/connectors/injected"
 
 export default function Header() {
-	const { address, isConnected } = useAccount()
+	const { isConnected } = useAccount()
 	const { connect } = useConnect({
 		connector: new InjectedConnector(),
 	})

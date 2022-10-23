@@ -1,6 +1,4 @@
-test create a contract on website
-ne lance même pas la fonction createCOntract dans create.js
-ajouter une value lors de la création du contract
+create a contract on website
 account 1 : 0x97C968f3F8ba6275E11a9F9859520f404Ee24a05
 
 my contracts page
