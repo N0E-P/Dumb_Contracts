@@ -14,12 +14,14 @@ export default function Create() {
 	const [_amountFromUser2ToUser1, setAmountFromUser2ToUser1] = React.useState("0")
 
 	const { config } = usePrepareContractWrite({
-		address: contractAddress,
+		address: "0x30BEbc4e1094cA707bD203b87e5a7358076a1254",
 		abi: contractABI,
 		functionName: "createAContract",
-		chainId: "5",
 		overrides: {
-			value: ethers.utils.parseEther("1" /*VARIABLES.toString*/),
+			from: "0x30BEbc4e1094cA707bD203b87e5a7358076a1254",
+			value: ethers.utils.parseEther(
+				_collateral + _amountFromUser1ToUser2
+			) /*VARIABLES.toString "1" */,
 		},
 		args: [_name, _text, _user2, _collateral, _amountFromUser1ToUser2, _amountFromUser2ToUser1],
 		onSuccess() {

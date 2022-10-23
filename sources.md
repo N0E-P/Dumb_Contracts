@@ -23,4 +23,5 @@ https://wagmi.sh/docs/hooks/useContractWrite
 
 ERROR : Hydration failed because the initial UI does not match what was rendered on the server :
 Wrap all the text between <h1> <h2> <h3> components and wrap everything between <div>
+en fait non
 https://stackoverflow.com/questions/71706064/react-18-hydration-failed-because-the-initial-ui-does-not-match-what-was-render
