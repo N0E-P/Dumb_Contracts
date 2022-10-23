@@ -1,8 +1,14 @@
 import "../styles/globals.css"
-import { MoralisProvider } from "react-moralis"
 import Header from "../components/Header"
 import Head from "next/head"
-import { NotificationProvider } from "web3uikit"
+
+import { WagmiConfig, createClient } from "wagmi"
+import { getDefaultProvider } from "ethers"
+
+const client = createClient({
+	autoConnect: true,
+	provider: getDefaultProvider(),
+})
 
 export default function MyApp({ Component, pageProps }) {
 	return (
@@ -12,12 +18,10 @@ export default function MyApp({ Component, pageProps }) {
 				<meta name="description" content="Dumb Contracts" />
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
-			<MoralisProvider initializeOnMount={false}>
-				<NotificationProvider>
-					<Header />
-					<Component {...pageProps} />
-				</NotificationProvider>
-			</MoralisProvider>
+			<WagmiConfig client={client}>
+				<Header />
+				<Component {...pageProps} />
+			</WagmiConfig>
 		</div>
 	)
 }

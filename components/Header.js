@@ -1,7 +1,14 @@
 import Link from "next/link"
-import { ConnectButton } from "web3uikit"
+import { useAccount, useConnect, useDisconnect } from "wagmi"
+import { InjectedConnector } from "wagmi/connectors/injected"
 
 export default function Header() {
+	const { address, isConnected } = useAccount()
+	const { connect } = useConnect({
+		connector: new InjectedConnector(),
+	})
+	const { disconnect } = useDisconnect()
+
 	return (
 		<div>
 			<div className="p-4 flex justify-center">
@@ -23,7 +30,13 @@ export default function Header() {
 						<button>Your contracts</button>
 					</Link>
 				</div>
-				<ConnectButton moralisAuth={false} />
+				<div>
+					{isConnected ? (
+						<button onClick={() => disconnect()}>Connected</button>
+					) : (
+						<button onClick={() => connect()}>Connect</button>
+					)}
+				</div>
 			</div>
 		</div>
 	)
