@@ -1,0 +1,233 @@
+[
+	{
+		"inputs": [
+			{
+				"internalType": "string",
+				"name": "_name",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "_text",
+				"type": "string"
+			},
+			{
+				"internalType": "address payable",
+				"name": "_user2",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_collateral",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_amountFromUser1ToUser2",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_amountFromUser2ToUser1",
+				"type": "uint256"
+			}
+		],
+		"name": "createAContract",
+		"outputs": [],
+		"stateMutability": "payable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "dumb__ChoiceHasToBeOneOf_complete_abandon_dispute",
+		"type": "error"
+	},
+	{
+		"inputs": [],
+		"name": "dumb__GiveMeMoreMoney",
+		"type": "error"
+	},
+	{
+		"inputs": [],
+		"name": "dumb__TheStateOfTheContractNeedToBeOngoingORDisputed",
+		"type": "error"
+	},
+	{
+		"inputs": [],
+		"name": "dumb__ThereIsNoMoneyForYou",
+		"type": "error"
+	},
+	{
+		"inputs": [],
+		"name": "dumb__YouCannotCreateAContractWithYourself",
+		"type": "error"
+	},
+	{
+		"inputs": [],
+		"name": "dumb__YouHaveAlreadyChooseToAcceptOrRefuseTheContract",
+		"type": "error"
+	},
+	{
+		"inputs": [],
+		"name": "dumb__YouNeedToBeThe2ndParticipantOfTheContract",
+		"type": "error"
+	},
+	{
+		"inputs": [],
+		"name": "dumb__YourAreNotAUserOfTheContract",
+		"type": "error"
+	},
+	{
+		"inputs": [],
+		"name": "dumb__YourCollateralNeedToBeAbove0Point01ETH",
+		"type": "error"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "_contractNumber",
+				"type": "uint256"
+			},
+			{
+				"internalType": "bool",
+				"name": "_choice",
+				"type": "bool"
+			}
+		],
+		"name": "refuseOrAcceptAContract",
+		"outputs": [],
+		"stateMutability": "payable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "_contractNumber",
+				"type": "uint256"
+			},
+			{
+				"internalType": "string",
+				"name": "_choice",
+				"type": "string"
+			}
+		],
+		"name": "setYourOpinion",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "_contractNumber",
+				"type": "uint256"
+			}
+		],
+		"name": "withdrawYourMoney",
+		"outputs": [],
+		"stateMutability": "payable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "_contractNumber",
+				"type": "uint256"
+			}
+		],
+		"name": "getContractInformations",
+		"outputs": [
+			{
+				"components": [
+					{
+						"internalType": "uint256",
+						"name": "contractNumber",
+						"type": "uint256"
+					},
+					{
+						"internalType": "string",
+						"name": "name",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "text",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "state",
+						"type": "string"
+					},
+					{
+						"internalType": "uint256",
+						"name": "collateral",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address payable",
+						"name": "user1",
+						"type": "address"
+					},
+					{
+						"internalType": "address payable",
+						"name": "user2",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amountFromUser1ToUser2",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amountFromUser2ToUser1",
+						"type": "uint256"
+					},
+					{
+						"internalType": "string",
+						"name": "opinionUser1",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "opinionUser2",
+						"type": "string"
+					},
+					{
+						"internalType": "uint256",
+						"name": "moneyForUser1",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "moneyForUser2",
+						"type": "uint256"
+					}
+				],
+				"internalType": "struct dumb.Contract",
+				"name": "",
+				"type": "tuple"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "getNumberOfContracts",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	}
+]

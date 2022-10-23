@@ -15,3 +15,8 @@ github : https://github.com/PatrickAlphaC/nextjs-nft-marketplace-moralis-fcc
 get events from the blockchain to display on a dapp :
 1 jour 1h 20min 30s https://youtu.be/gyMwXuJrbJQ?t=91230
 github : https://github.com/PatrickAlphaC/nextjs-nft-marketplace-moralis-fcc
+
+goerli faucet :
+https://goerlifaucet.com/ 0.1 ETH every 24H
+https://goerli-faucet.pk910.de/ up to 0.2 ETH per working hour
+https://faucets.chain.link/ 0.1 ETH & 20 LINK every hour

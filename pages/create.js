@@ -1,10 +1,9 @@
 import { useWeb3Contract } from "react-moralis"
 import { Form, useNotification } from "web3uikit"
+import contractABI from "../contract/ABI.json"
+const contractAddress = require("../contract/ADDRESS.json")["goerli"][0]
 
 export default function Create() {
-	const CONTRACTABI = 1
-	const CONTRACTADDRESS = 1
-
 	const { runContractFunction } = useWeb3Contract()
 	const dispatch = useNotification()
 
@@ -18,8 +17,8 @@ export default function Create() {
 		const amountFromUser2ToUser1 = data.data[5].inputResult * 1000000000000000000
 
 		const Options = {
-			abi: CONTRACTABI,
-			contractAddress: CONTRACTADDRESS,
+			abi: contractABI,
+			contractAddress: contractAddress,
 			functionName: "createAContract",
 			params: {
 				_name: name,
