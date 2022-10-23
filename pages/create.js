@@ -1,5 +1,6 @@
 import { useWeb3Contract } from "react-moralis"
 import { Form, useNotification } from "web3uikit"
+
 import contractABI from "../contract/ABI.json"
 const contractAddress = require("../contract/ADDRESS.json")["goerli"][0]
 
@@ -20,6 +21,7 @@ export default function Create() {
 			abi: contractABI,
 			contractAddress: contractAddress,
 			functionName: "createAContract",
+			msgValue: collateral + amountFromUser1ToUser2,
 			params: {
 				_name: name,
 				_text: text,
@@ -52,8 +54,6 @@ export default function Create() {
 	return (
 		<div>
 			<Form
-				title="Create a Dumb Contract"
-				id="form"
 				onSubmit={CreateContract}
 				data={[
 					{
@@ -99,6 +99,8 @@ export default function Create() {
 						key: "amountFromUser2ToUser1",
 					},
 				]}
+				title="Create a Dumb Contract"
+				id="form"
 			/>
 		</div>
 	)
