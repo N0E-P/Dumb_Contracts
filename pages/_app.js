@@ -1,8 +1,11 @@
 import "../styles/globals.css"
-import Header from "../components/Header"
 import Head from "next/head"
+import Connect from "../components/Connect"
+import Home from "../components/Home"
+import Create from "../components/Create"
+import Contracts from "../components/Contracts"
 
-import { WagmiConfig, createClient } from "wagmi"
+import { WagmiConfig, createClient, useAccount } from "wagmi"
 import { getDefaultProvider } from "ethers"
 
 const client = createClient({
@@ -10,17 +13,25 @@ const client = createClient({
 	provider: getDefaultProvider(),
 })
 
-export default function MyApp({ Component, pageProps }) {
+export default function app({ Component, pageProps }) {
+	const { isConnected } = useAccount()
+
 	return (
 		<div>
 			<Head>
 				<title>Dumb Contracts</title>
-				<meta name="description" content="Dumb Contracts" />
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
 			<WagmiConfig client={client}>
-				<Header />
-				<Component {...pageProps} />
+				{isConnected ? (
+					<div>
+						<Home />
+						<Create />
+						<Contracts />
+					</div>
+				) : (
+					<Connect />
+				)}
 			</WagmiConfig>
 		</div>
 	)
