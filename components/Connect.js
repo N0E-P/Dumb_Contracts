@@ -9,11 +9,13 @@ export default function Connect() {
 	return (
 		<div>
 			<div className="p-4 flex justify-center">
-				<div className="m-4">*logo*</div>
+				<h4 className="m-4">*logo*</h4>
 				<h1 className="mx-4">Dumb Contracts</h1>
 			</div>
 			<h3>Connect you to use the Dapp</h3>
-			<button onClick={() => connect()}>Connect</button>
+			<button onClick={() => connect()}>
+				<h4>Connect</h4>
+			</button>
 		</div>
 	)
 }

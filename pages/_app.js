@@ -22,17 +22,19 @@ export default function app({ Component, pageProps }) {
 				<title>Dumb Contracts</title>
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
-			<WagmiConfig client={client}>
-				{isConnected ? (
-					<div>
-						<Home />
-						<Create />
-						<Contracts />
-					</div>
-				) : (
-					<Connect />
-				)}
-			</WagmiConfig>
+			<div>
+				<WagmiConfig client={client}>
+					{isConnected ? (
+						<div>
+							<Home />
+							<Create />
+							<Contracts />
+						</div>
+					) : (
+						<Connect />
+					)}
+				</WagmiConfig>
+			</div>
 		</div>
 	)
 }

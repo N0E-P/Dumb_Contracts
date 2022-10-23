@@ -6,14 +6,13 @@ export default function Home() {
 	return (
 		<div>
 			<div className="p-4 flex justify-center">
-				<div className="m-4">*logo*</div>
+				<h4 className="m-4">*logo*</h4>
 				<h1 className="mx-4">Dumb Contracts</h1>
 				<button className="mx-4" onClick={() => disconnect()}>
-					Disconnect
+					<h4>Disconnect</h4>
 				</button>
 			</div>
-			Create contracts between two people in a decentralized and secured way with a
-			collateral.
+			<h4>Create decentralized and secured contracts between peoples.</h4>
 		</div>
 	)
 }

@@ -8,15 +8,19 @@ https://search.brave.com/search?q=decimal+eth+in+solodity+smart+contract&source=
 eth Converter :
 https://eth-converter.com/
 
-call a contract function from a dapp :
-1 jour 3h 41min https://youtu.be/gyMwXuJrbJQ?t=99660
-github : https://github.com/PatrickAlphaC/nextjs-nft-marketplace-moralis-fcc
-
-get events from the blockchain to display on a dapp :
-1 jour 1h 20min 30s https://youtu.be/gyMwXuJrbJQ?t=91230
-github : https://github.com/PatrickAlphaC/nextjs-nft-marketplace-moralis-fcc
-
 goerli faucet :
 https://goerlifaucet.com/ 0.1 ETH every 24H
 https://goerli-faucet.pk910.de/ up to 0.2 ETH per working hour
 https://faucets.chain.link/ 0.1 ETH & 20 LINK every hour
+
+wagmi installation
+https://wagmi.sh/
+
+contract write
+https://wagmi.sh/examples/contract-write-dynamic
+https://wagmi.sh/docs/prepare-hooks/usePrepareContractWrite
+https://wagmi.sh/docs/hooks/useContractWrite
+
+ERROR : Hydration failed because the initial UI does not match what was rendered on the server :
+Wrap all the text between <h1> <h2> <h3> components and wrap everything between <div>
+https://stackoverflow.com/questions/71706064/react-18-hydration-failed-because-the-initial-ui-does-not-match-what-was-render
