@@ -3,7 +3,7 @@ import { ethers } from "ethers"
 import { usePrepareContractWrite, useContractWrite, useWaitForTransaction } from "wagmi"
 
 import contractABI from "../contract/ABI.json"
-//const contractAddress = require("../contract/ADDRESS.json")["goerli"][0]
+const contractAddress = require("../contract/ADDRESS.json")["goerli"][0]
 
 export default function Create() {
 	const [_name, setName] = React.useState("")
@@ -27,7 +27,7 @@ export default function Create() {
 		error: prepareError,
 		isError: isPrepareError,
 	} = usePrepareContractWrite({
-		address: "0x30BEbc4e1094cA707bD203b87e5a7358076a1254",
+		address: contractAddress,
 		abi: contractABI,
 		functionName: "createAContract",
 		overrides: {

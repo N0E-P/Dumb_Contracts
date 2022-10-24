@@ -19,15 +19,15 @@ contract dumb {
 		string name; //name of the contract
 		string text; //description of what is the contract
 		string state; // It can be : suggested / rejected / ongoing / completed / abandoned / disputed
-		uint256 collateral; //have to be given by the 2 users (written in wei)
+		string collateral; //have to be given by the 2 users (written in wei)
 		address payable user1; //creator
 		address payable user2; //2nd user
-		uint256 amountFromUser1ToUser2; //written in wei
-		uint256 amountFromUser2ToUser1;
+		string amountFromUser1ToUser2; //written in wei
+		string amountFromUser2ToUser1;
 		string opinionUser1; // It can be : "complete" / "abandon" / "dispute" (you have to put the "" in the setYourOpinion field)
 		string opinionUser2;
-		uint256 moneyForUser1; //written in wei
-		uint256 moneyForUser2;
+		string moneyForUser1; //written in wei
+		string moneyForUser2;
 	}
 
 	mapping(uint256 => Contract) contractList;
@@ -36,9 +36,9 @@ contract dumb {
 		string memory _name,
 		string memory _text,
 		address payable _user2,
-		uint256 _collateral,
-		uint256 _amountFromUser1ToUser2,
-		uint256 _amountFromUser2ToUser1
+		string memory _collateral,
+		string memory _amountFromUser1ToUser2,
+		string memory _amountFromUser2ToUser1
 	) external payable {
 		//check if the user enter his own address in "user2"
 		if (msg.sender == _user2) {
@@ -46,7 +46,7 @@ contract dumb {
 		}
 
 		//check if the collateral is above 0.01 ETH
-		if (_collateral < 10000000000000000) {
+		if (keccak256(abi.encode(_collateral)) < keccak256("10000000000000000")) {
 			revert dumb__YourCollateralNeedToBeAbove0Point01ETH();
 		}
 
@@ -69,8 +69,8 @@ contract dumb {
 			_amountFromUser2ToUser1,
 			"none",
 			"none",
-			0,
-			0
+			"0",
+			"0"
 		);
 	}
 
@@ -118,15 +118,17 @@ contract dumb {
 		//user1
 		if (msg.sender == contractList[_contractNumber].user1) {
 			//Verify if there is money for this user
-			if (contractList[_contractNumber].moneyForUser1 == 0) {
+			if (
+				keccak256(abi.encode(contractList[_contractNumber].moneyForUser1)) == keccak256("0")
+			) {
 				revert dumb__ThereIsNoMoneyForYou();
 			}
 
 			//store the money due
-			uint256 money1 = contractList[_contractNumber].moneyForUser1;
+			string memory money1 = contractList[_contractNumber].moneyForUser1;
 
 			//change the amount in the moneyForUser1 variable
-			contractList[_contractNumber].moneyForUser1 = 0;
+			contractList[_contractNumber].moneyForUser1 = "0";
 
 			//tranfer the funds
 			contractList[_contractNumber].user1.transfer(money1);
@@ -136,15 +138,17 @@ contract dumb {
 		//user2
 		if (msg.sender == contractList[_contractNumber].user2) {
 			//Verify if there is money for this user
-			if (contractList[_contractNumber].moneyForUser2 == 0) {
+			if (
+				keccak256(abi.encode(contractList[_contractNumber].moneyForUser2)) == keccak256("0")
+			) {
 				revert dumb__ThereIsNoMoneyForYou();
 			}
 
 			//store the money due
-			uint256 money2 = contractList[_contractNumber].moneyForUser2;
+			string memory money2 = contractList[_contractNumber].moneyForUser2;
 
 			//change the amount in the moneyForUser1 variable
-			contractList[_contractNumber].moneyForUser2 = 0;
+			contractList[_contractNumber].moneyForUser2 = "0";
 
 			//tranfer the funds
 			contractList[_contractNumber].user2.transfer(money2);
@@ -208,9 +212,9 @@ contract dumb {
 		}
 
 		//store the amount due
-		uint256 amount1 = contractList[_contractNumber].collateral +
+		string memory amount1 = contractList[_contractNumber].collateral +
 			contractList[_contractNumber].amountFromUser2ToUser1;
-		uint256 amount2 = contractList[_contractNumber].collateral +
+		string memory amount2 = contractList[_contractNumber].collateral +
 			contractList[_contractNumber].amountFromUser1ToUser2;
 
 		//check if the 2 decide to set it as complete

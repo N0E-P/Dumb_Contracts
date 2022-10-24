@@ -1,6 +1,12 @@
-besoin de mettre les values d'ETH en string pour éviter les big numbers ? si oui, changer sur la dapp et le smart contract
+memory VS calldata ?
+
+add 2 string together ?
+
+transfer money amount from string ?
 
 test valeurs en ETH
+
+---
 
 formulaire create a contract
 account 1 : 0x97C968f3F8ba6275E11a9F9859520f404Ee24a05
