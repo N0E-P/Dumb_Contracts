@@ -1,4 +1,3 @@
-import Head from "next/head"
 import Connect from "../components/Connect"
 import Home from "../components/Home"
 import Create from "../components/Create"
@@ -10,21 +9,15 @@ export default function Index() {
 
 	return (
 		<div>
-			<Head>
-				<title>Dumb Contracts</title>
-				<link rel="icon" href="/favicon.ico" />
-			</Head>
-			<div>
-				{isConnected ? (
-					<div>
-						<Home />
-						<Create />
-						<Contracts />
-					</div>
-				) : (
-					<Connect />
-				)}
-			</div>
+			{isConnected ? (
+				<div>
+					<Home />
+					<Create />
+					<Contracts />
+				</div>
+			) : (
+				<Connect />
+			)}
 		</div>
 	)
 }
