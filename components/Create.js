@@ -3,7 +3,7 @@ import { ethers } from "ethers"
 import { usePrepareContractWrite, useContractWrite, useWaitForTransaction } from "wagmi"
 
 import contractABI from "../contract/ABI.json"
-const contractAddress = require("../contract/ADDRESS.json")["goerli"][0]
+//const contractAddress = require("../contract/ADDRESS.json")["goerli"][0]
 
 export default function Create() {
 	const [_name, setName] = React.useState("")
@@ -13,26 +13,31 @@ export default function Create() {
 	const [_amountFromUser1ToUser2, setAmountFromUser1ToUser2] = React.useState("0")
 	const [_amountFromUser2ToUser1, setAmountFromUser2ToUser1] = React.useState("0")
 
-	const { config } = usePrepareContractWrite({
+	const {
+		config,
+		error: prepareError,
+		isError: isPrepareError,
+	} = usePrepareContractWrite({
 		address: "0x30BEbc4e1094cA707bD203b87e5a7358076a1254",
 		abi: contractABI,
 		functionName: "createAContract",
 		overrides: {
-			from: "0x30BEbc4e1094cA707bD203b87e5a7358076a1254",
-			value: ethers.utils.parseEther(
-				_collateral + _amountFromUser1ToUser2
-			) /*VARIABLES.toString "1" */,
+			value: ethers.utils.parseEther("1"), //_collateral + _amountFromUser1ToUser2).toString,
 		},
 		args: [_name, _text, _user2, _collateral, _amountFromUser1ToUser2, _amountFromUser2ToUser1],
 		onSuccess() {
 			console.log("usePrepareContractWrite done")
 		},
 		onError(error) {
-			console.log("Error", error)
+			console.log(error)
 		},
 	})
 
-	const { data, isLoading, isSuccess, write } = useContractWrite(config)
+	const { data, error, isError, write } = useContractWrite(config)
+
+	const { isLoading, isSuccess } = useWaitForTransaction({
+		hash: data?.hash,
+	})
 
 	return (
 		<div>
@@ -109,10 +114,20 @@ export default function Create() {
 						value={_amountFromUser2ToUser1}
 					/>
 				</div>
-
-				<button disabled={!write} onClick={() => write?.()}>
-					<h4>Create Your Contract</h4>
+				<button disabled={!write || isLoading}>
+					{isLoading ? "Creating The Contract..." : "Create Your Contract"}
 				</button>
+				{isSuccess && (
+					<div>
+						Successfully created your Dumb Contract!
+						<div>
+							<a href={`https://etherscan.io/tx/${data?.hash}`}>Etherscan</a>
+						</div>
+					</div>
+				)}
+				{(isPrepareError || isError) && (
+					<div>Error: {(prepareError || error)?.message}</div>
+				)}
 			</form>
 		</div>
 	)
