@@ -9,7 +9,7 @@ export default function Connect() {
 	return (
 		<div>
 			<div className="p-4 flex justify-center">
-				<h4 className="m-4">*logo*</h4>
+				<img className="mx-4" src={"nft-logo.png"} width="60px" height="60px" />
 				<h1 className="mx-4">Dumb Contracts</h1>
 			</div>
 			<h3>Connect you to use the Dapp</h3>

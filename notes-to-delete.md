@@ -1,17 +1,25 @@
-create a contract on website
+besoin de mettre les values d'ETH en string pour éviter les big numbers ? si oui, changer sur la dapp et le smart contract
+
+test valeurs en ETH
+
+formulaire create a contract
 account 1 : 0x97C968f3F8ba6275E11a9F9859520f404Ee24a05
 
-my contracts page
+test
+
+voir my contracts
 ajouter des "emit" avec moralis etc...?
 1 jour 1h 20min 30s https://youtu.be/gyMwXuJrbJQ?t=91230
-OU lire direct depuis la blockchain ? (ce qui serait beaucoup plus simple a mettre en place)
+OU lire direct en boucle depuis la blockchain ? (ce qui serait beaucoup plus simple a mettre en place)
+OU utiliser the graph
 
 max de tests
-besoin de mettre les values d'ETH en string pour éviter les big numbers ? si oui, changer sur la dapp et le smart contract
 
 website style with tailwind
 logo  
 mobile adaptation
+
+tests
 
 ---
 

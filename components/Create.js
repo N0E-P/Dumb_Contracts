@@ -9,9 +9,18 @@ export default function Create() {
 	const [_name, setName] = React.useState("")
 	const [_text, setText] = React.useState("")
 	const [_user2, setUser2] = React.useState("")
-	const [_collateral, setCollateral] = React.useState("")
-	const [_amountFromUser1ToUser2, setAmountFromUser1ToUser2] = React.useState("0")
-	const [_amountFromUser2ToUser1, setAmountFromUser2ToUser1] = React.useState("0")
+	const [_ETHcollateral, setCollateral] = React.useState("0.01")
+	const [_ETHamountFromUser1ToUser2, setAmountFromUser1ToUser2] = React.useState("0")
+	const [_ETHamountFromUser2ToUser1, setAmountFromUser2ToUser1] = React.useState("0")
+
+	let _collateral = ethers.utils.parseEther(_ETHcollateral).toString
+	let _amountFromUser1ToUser2 = ethers.utils.parseEther(_ETHamountFromUser1ToUser2).toString
+	let _amountFromUser2ToUser1 = ethers.utils.parseEther(_ETHamountFromUser2ToUser1).toString
+	let priceToPay = ethers.utils.parseEther(_ETHcollateral + _ETHamountFromUser1ToUser2).toString
+
+	console.log(_ETHcollateral)
+	console.log(_collateral)
+	console.log(priceToPay)
 
 	const {
 		config,
@@ -22,7 +31,7 @@ export default function Create() {
 		abi: contractABI,
 		functionName: "createAContract",
 		overrides: {
-			value: ethers.utils.parseEther("1"), //_collateral + _amountFromUser1ToUser2).toString,
+			value: priceToPay,
 		},
 		args: [_name, _text, _user2, _collateral, _amountFromUser1ToUser2, _amountFromUser2ToUser1],
 		onSuccess() {
@@ -89,7 +98,7 @@ export default function Create() {
 						id="Collateral"
 						onChange={(e) => setCollateral(e.target.value)}
 						placeholder=" > 0.01"
-						value={_collateral}
+						value={_ETHcollateral}
 					/>
 				</div>
 				<div>
@@ -100,7 +109,7 @@ export default function Create() {
 						id="AmountFromUser1ToUser2"
 						onChange={(e) => setAmountFromUser1ToUser2(e.target.value)}
 						placeholder="0"
-						value={_amountFromUser1ToUser2}
+						value={_ETHamountFromUser1ToUser2}
 					/>
 				</div>
 				<div>
@@ -111,7 +120,7 @@ export default function Create() {
 						id="AmountFromUser2ToUser1"
 						onChange={(e) => setAmountFromUser2ToUser1(e.target.value)}
 						placeholder="0"
-						value={_amountFromUser2ToUser1}
+						value={_ETHamountFromUser2ToUser1}
 					/>
 				</div>
 				<button disabled={!write || isLoading}>

@@ -6,7 +6,7 @@ export default function Home() {
 	return (
 		<div>
 			<div className="p-4 flex justify-center">
-				<h4 className="m-4">*logo*</h4>
+				<img className="mx-4" src={"nft-logo.png"} width="60px" height="60px" />
 				<h1 className="mx-4">Dumb Contracts</h1>
 				<button className="mx-4" onClick={() => disconnect()}>
 					<h4>Disconnect</h4>
