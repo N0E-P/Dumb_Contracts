@@ -1,6 +1,8 @@
 memory VS calldata ?
 
 add 2 string together ?
+string.concat(s1, s2) permet de les assembler
+sinon, retransformer en uint avec toNumber ou qqch similaire, additionner et remettre en string
 
 transfer money amount from string ?
 
