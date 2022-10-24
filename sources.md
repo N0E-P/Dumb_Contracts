@@ -1,6 +1,9 @@
 Structs in solidity :
 https://www.youtube.com/watch?v=UkdU0cuAp9U
 
+remix :
+https://remix.ethereum.org/
+
 decimal values :
 https://ethereum.stackexchange.com/questions/2987/how-can-i-represent-decimal-values-in-solidity
 https://search.brave.com/search?q=decimal+eth+in+solodity+smart+contract&source=web

@@ -1,15 +1,3 @@
-memory VS calldata ?
-
-add 2 string together ?
-string.concat(s1, s2) permet de les assembler
-sinon, retransformer en uint avec toNumber ou qqch similaire, additionner et remettre en string
-
-transfer money amount from string ?
-
-test valeurs en ETH
-
----
-
 formulaire create a contract
 account 1 : 0x97C968f3F8ba6275E11a9F9859520f404Ee24a05
 
